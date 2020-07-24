@@ -23,6 +23,30 @@ class MyApp extends StatelessWidget {
             drawer: Drawer(
               child: ListView(
                 children: [
+                  Container(
+                    color: Colors.black,
+                    height: 150,
+                    width: double.infinity,
+                    child: Center(
+                        child: Column(
+                      children: [
+                        Container(
+                          // margin: EdgeInsets.only(top:30),
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"),
+                                fit: BoxFit.fill),
+                          ),
+                        ),
+                        Text("Harsh ",
+                            style: TextStyle(fontSize: 22, color: Colors.white))
+                      ],
+                    )),
+                  ),
                   ListTile(
                     title: Text(
                       "Enable Dark Theme",
@@ -31,6 +55,30 @@ class MyApp extends StatelessWidget {
                       value: snapshot.data,
                       onChanged: bloc.changeTheme,
                     ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text("Profile"),
+                    onTap: () {
+                      // we are popping so that the navigator shrinks back to its initial position when we navigate to new screen
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text("Settings"),
+                    onTap: () {
+                      // we are popping so that the navigator shrinks back to its initial position when we navigate to new screen
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.arrow_back),
+                    title: Text("Logout"),
+                    onTap: () {
+                      // we are popping so that the navigator shrinks back to its initial position when we navigate to new screen
+                      Navigator.of(context).pop();
+                    },
                   ),
                 ],
               ),
